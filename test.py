@@ -5,8 +5,8 @@ from DrawPlots import DrawPlots
 from Fft import Fft
 import scipy.io.wavfile as wav
 
-fs, audio_data = wav.read('../wav/pick/normal_pick_4.wav')
-fft = Fft.get_fft(audio_data, 2.75)
+# fs, audio_data = wav.read('../wav/pick/normal_pick_4.wav')
+# fft = Fft.get_fft(audio_data, 2.75)
 #DrawPlots.fft_plot((fft, ), 'log', 'Amplitude', 'Frequency')
 
 # d = int(round(len(abs_fft)/2))
