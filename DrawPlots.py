@@ -5,7 +5,7 @@ from matplotlib.widgets import Cursor
 class DrawPlots:
 
     @staticmethod
-    def fft_plot(abs_fft_list=[], fft_yscale='log', fft_ylabel='y', fft_xlabel='f', dir_name='./'):
+    def fft_plot(abs_fft_list=[], fft_yscale='log', fft_ylabel='y', fft_xlabel='f', dir_name='./', plot_name='plot'):
 
         fig = plt.figure(figsize=(8, 6))
         layout = int(len(abs_fft_list))*100 + 10 + 1
@@ -26,4 +26,4 @@ class DrawPlots:
             layout += 1
 
         cursor = Cursor(fft_plot, useblit=True, color='red', linewidth=1)
-        plt.savefig(dir_name + '/plot.png')
+        plt.savefig(dir_name + plot_name + '.png')

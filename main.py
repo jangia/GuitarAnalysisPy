@@ -1,11 +1,14 @@
+import os
+import pprint
 from DrawPlots import DrawPlots
 from Fft import Fft
 from Files import Files
 from Peaks import Peaks
-import os
-import pprint
+from Synth import Synth
 
 my_dir = '../wav/'
+plot_dir = '../plot/'
+synth_dir = '../synth/'
 dirs = os.listdir(my_dir)
 
 for dir_name in dirs:
@@ -15,10 +18,11 @@ for dir_name in dirs:
     # params = [[1.75, 48000, 16], [1.75, 48000, 16], [1.75, 48000, 16]]
     audio_files_data = Files.add_params(audio_data, params)
     all_fft = Fft.get_all_fft(audio_files_data)
-    DrawPlots.fft_plot(all_fft, 'log', 'Amplitude', 'Frequency', my_dir + dir_name)
+    DrawPlots.fft_plot(all_fft, 'log', 'Amplitude', 'Frequency', plot_dir, dir_name)
 
-    params = [0, 2000, 50, 0.1]
+    params = [0, 2000, 40, 0.005]
     main_freq = Peaks.get_all_main(all_fft, params)
+    Synth.write_all(main_freq, synth_dir, dir_name)
 
     pprint.pprint(main_freq)
 
