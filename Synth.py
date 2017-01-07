@@ -20,9 +20,9 @@ class Synth:
         write_wavefile(file_dir + file_name + '.wav', samples, 44100 * 5 * 1, nchannels=1)
 
     @staticmethod
-    def write_all(fq_amp_all, file_dir, file_name):
-        i = 1
+    def write_all(fq_amp_all, file_dir, file_names):
+        i = 0
         for var in fq_amp_all:
-            Synth.write_file(var, file_dir, file_name + str(i))
+            Synth.write_file(var, file_dir, file_names[i])
             i += 1
 

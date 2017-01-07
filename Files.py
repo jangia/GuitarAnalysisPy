@@ -1,5 +1,6 @@
 import scipy.io.wavfile as wav
 import os
+from os.path import basename
 
 
 class Files:
@@ -10,12 +11,14 @@ class Files:
         files = os.listdir(files_dir)
 
         audio_files_data = []
+        file_names = []
 
         for file in files:
             fs, audio_data = wav.read(files_dir + '/' + file)
             audio_files_data.append(audio_data)
+            file_names.append(basename(file))
 
-        return audio_files_data
+        return audio_files_data, file_names
 
     @staticmethod
     def add_params(audio_files_data, params):

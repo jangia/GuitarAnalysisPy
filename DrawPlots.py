@@ -5,10 +5,11 @@ from matplotlib.widgets import Cursor
 class DrawPlots:
 
     @staticmethod
-    def fft_plot(abs_fft_list=[], fft_yscale='log', fft_ylabel='y', fft_xlabel='f', dir_name='./', plot_name='plot'):
+    def fft_plot(abs_fft_list=[], file_names=[], fft_yscale='log', fft_ylabel='y', fft_xlabel='f', dir_name='./', plot_name='plot'):
 
         fig = plt.figure(figsize=(8, 6))
         layout = int(len(abs_fft_list))*100 + 10 + 1
+        i=0;
 
         for abs_fft in abs_fft_list:
 
@@ -23,6 +24,8 @@ class DrawPlots:
 
             fft_plot.set_ylabel(fft_ylabel)
             fft_plot.set_xlabel(fft_xlabel)
+            fft_plot.set_title(file_names[i])
+            i += 1
             layout += 1
 
         cursor = Cursor(fft_plot, useblit=True, color='red', linewidth=1)
