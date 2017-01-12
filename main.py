@@ -21,7 +21,7 @@ for dir_name in dirs:
     DrawPlots.fft_plot(all_fft, file_names, 'log', 'Amplitude', 'Frequency', plot_dir, dir_name)
 
     if dir_name != 'noise':
-        params = [0, 2000, 40, 0.005]
+        params = [0, 20000, 40, 0.005]
         main_freq = Peaks.get_all_main(all_fft, params)
         Synth.write_all(main_freq, synth_dir, file_names)
         pprint.pprint(main_freq)

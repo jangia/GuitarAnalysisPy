@@ -9,7 +9,7 @@ class DrawPlots:
 
         fig = plt.figure(figsize=(8, 6))
         layout = int(len(abs_fft_list))*100 + 10 + 1
-        i=0;
+        i=0
 
         for abs_fft in abs_fft_list:
 
@@ -28,5 +28,4 @@ class DrawPlots:
             i += 1
             layout += 1
 
-        cursor = Cursor(fft_plot, useblit=True, color='red', linewidth=1)
         plt.savefig(dir_name + plot_name + '.png')
